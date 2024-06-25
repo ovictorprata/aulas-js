@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Tarefas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, thead {
+            background-color: #faffaf;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .table {
+            background-color: white;
+        }
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Gerenciamento de Tarefas</h1>
+
+        <!-- Adicionar Nova Tarefa -->
+        <div class="card mb-4">
+            <div class="card-header">
+                Adicionar Nova Tarefa
+            </div>
+            <div class="card-body">
+                <form id="form-adicionar">
+                    <div class="form-group">
+                        <label for="descricaoAdicionar">Descrição:</label>
+                        <input type="text" class="form-control" id="descricaoAdicionar" placeholder="Digite a descrição da nova tarefa" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Input de Edição de Tarefa -->
+        <div class="card mb-4">
+            <div class="card-header">
+                Editar Tarefa
+            </div>
+            <div class="card-body">
+                <form id="form-editar">
+                    <div class="form-group">
+                        <label for="id-novo">ID:</label>
+                        <input type="text" class="form-control" id="id-editar" placeholder="Id da tarefa" required readonly>
+                        <label class="mt-4" for="descricao-nova">Nova Descrição:</label>
+                        <input type="text" class="form-control" id="descricao-nova" placeholder="Digite a nova descrição da tarefa" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btn-editar-historia">Editar história</button>
+                    <button type="button" class="btn btn-secondary ml-2" id="btn-cancelar-edicao">Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tabela de Tarefas -->
+        <div class="card">
+            <div class="card-header">
+                Lista de Tarefas
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Likes</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-historias"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

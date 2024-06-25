@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Histórias</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5; /* Cor de fundo */
+        }
+        .card {
+            border: none;
+            background-color: #ffffff; /* Cor de fundo dos cards */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        .card-header {
+            background-color: #007bff; /* Cor de fundo do cabeçalho do card (azul) */
+            color: #ffffff; /* Cor do texto do cabeçalho */
+        }
+        .card-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .historia-editavel {
+            border: 1px solid #ced4da; /* Borda do input */
+            border-radius: 4px;
+            padding: 8px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transição suave */
+        }
+        .historia-editavel:focus {
+            border-color: #007bff; /* Cor da borda ao focar no input (azul) */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra ao focar */
+        }
+        .btn-editar {
+            background-color: #ffc107; /* Cor de fundo do botão Editar (laranja) */
+            border-color: #ffc107; /* Cor da borda do botão Editar (laranja) */
+            color: #ffffff; /* Cor do texto do botão Editar */
+            width: 70px; /* Largura fixa para manter os botões do mesmo tamanho */
+        }
+        .btn-editar:hover {
+            background-color: #e0a800; /* Cor de fundo do botão Editar ao passar o mouse */
+            border-color: #e0a800; /* Cor da borda do botão Editar ao passar o mouse */
+        }
+        .btn-excluir {
+            background-color: #dc3545; /* Cor de fundo do botão Excluir (vermelho) */
+            border-color: #dc3545; /* Cor da borda do botão Excluir (vermelho) */
+            color: #ffffff; /* Cor do texto do botão Excluir */
+            width: 70px; /* Largura fixa para manter os botões do mesmo tamanho */
+        }
+        .btn-excluir:hover {
+            background-color: #c82333; /* Cor de fundo do botão Excluir ao passar o mouse */
+            border-color: #c82333; /* Cor da borda do botão Excluir ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">CRUD de Histórias</h2>
+        
+        <!-- Formulário para adicionar nova história -->
+        <div class="card mb-4">
+            <div class="card-header">
+                Adicionar Nova História
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="novaHistoria">Descrição da História</label>
+                    <input type="text" class="form-control" id="novaHistoria" placeholder="Digite a descrição da história">
+                </div>
+                <button class="btn btn-primary" onclick="adicionarHistoria()">Adicionar</button>
+            </div>
+        </div>
+
+        <!-- Lista de histórias -->
+        <div id="listaHistorias">
+            <!-- Exemplo de duas histórias iniciais -->
+            <div class="card mb-2">
+                <div class="card-body">
+                    <input type="text" class="form-control historia-editavel" value="História 1" readonly>
+                    <div>
+                        <button class="btn btn-editar btn-sm mr-2" onclick="editarHistoria(this)">Editar</button>
+                        <button class="btn btn-excluir btn-sm" onclick="excluirHistoria(this)">Excluir</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <input type="text" class="form-control historia-editavel" value="História 2" readonly>
+                    <div>
+                        <button class="btn btn-editar btn-sm mr-2" onclick="editarHistoria(this)">Editar</button>
+                        <button class="btn btn-excluir btn-sm" onclick="excluirHistoria(this)">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS e dependências para funcionalidades -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Função para adicionar nova história
+        function adicionarHistoria() {
+            var descricao = document.getElementById('novaHistoria').value;
+            if (descricao.trim() === '') {
+                alert('Por favor, digite uma descrição para a história.');
+                return;
+            }
+            var novaCard = `
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <input type="text" class="form-control historia-editavel" value="${descricao}" readonly>
+                        <div>
+                            <button class="btn btn-editar btn-sm mr-2" onclick="editarHistoria(this)">Editar</button>
+                            <button class="btn btn-excluir btn-sm" onclick="excluirHistoria(this)">Excluir</button>
+                        </div>
+                    </div>
+                </div>`;
+            document.getElementById('listaHistorias').insertAdjacentHTML('beforeend', novaCard);
+            document.getElementById('novaHistoria').value = '';
+        }
+
+        // Função para editar história
+        function editarHistoria(botaoEditar) {
+            var cardBody = botaoEditar.closest('.card-body');
+            var inputDescricao = cardBody.querySelector('.historia-editavel');
+            inputDescricao.readOnly = false;
+            inputDescricao.focus();
+            inputDescricao.classList.add('border', 'border-primary'); // Estilizar o input quando editável
+            botaoEditar.innerText = 'Salvar';
+            botaoEditar.classList.remove('btn-editar');
+            botaoEditar.classList.add('btn-success');
+            botaoEditar.setAttribute('onclick', 'salvarEdicao(this)');
+        }
+
+        // Função para salvar edição da história
+        function salvarEdicao(botaoSalvar) {
+            var cardBody = botaoSalvar.closest('.card-body');
+            var inputDescricao = cardBody.querySelector('.historia-editavel');
+            inputDescricao.readOnly = true;
+            inputDescricao.classList.remove('border', 'border-primary'); // Remover estilo de edição
+            botaoSalvar.innerText = 'Editar';
+            botaoSalvar.classList.remove('btn-success');
+            botaoSalvar.classList.add('btn-editar');
+            botaoSalvar.setAttribute('onclick', 'editarHistoria(this)');
+        }
+
+        // Função para excluir história
+        function excluirHistoria(botaoExcluir) {
+            var card = botaoExcluir.closest('.card');
+            if (confirm('Tem certeza que deseja excluir esta história?')) {
+                card.remove();
+            }
+        }
+    </script>
+</body>
+</html>
