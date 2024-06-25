@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Histórias Sem Graça</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Histórias Sem Graça</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
+        <h1 class="text-center">Gerenciamento de Histórias Sem Graça</h1>
+        <form id="story-form" class="form-inline justify-content-center mb-4">
+            <input type="hidden" id="story-id" />
+            <div class="form-group mr-2">
+                <input type="text" id="story-descricao" class="form-control" placeholder="Descrição da História" required />
+            </div>
+            <div class="form-group mr-2">
+                <input type="number" id="story-likes" class="form-control" placeholder="Likes" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Likes</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="story-list"></tbody>
+        </table>
+    </div>
+
+    <!-- Modal para editar histórias -->
+    <div class="modal fade" id="editStoryModal" tabindex="-1" role="dialog" aria-labelledby="editStoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editStoryModalLabel">Editar História Sem Graça</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-story-form">
+                        <input type="hidden" id="edit-story-id" />
+                        <div class="form-group">
+                            <label for="edit-story-descricao">Descrição</label>
+                            <input type="text" id="edit-story-descricao" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-story-likes">Likes</label>
+                            <input type="number" id="edit-story-likes" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer mt-auto py-3">
+      <div class="container text-center">
+        <span class="text-muted">© 2024 Histórias Sem Graça. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body {
+  background-color: #e0e599;
+}
+
+nav, footer {
+  background: #faffaf;
+}
+.container {
+  margin-top: 50px;
+}
+.modal-header, .modal-footer {
+  background-color: #faffaf;
+}
+.table {
+  background-color: white;
+}

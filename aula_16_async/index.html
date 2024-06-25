@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD com Fetch API</title>
+    <style>
+        /* Adicione alguns estilos básicos para melhor visualização */
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Tarefas</h1>
+    <form id="task-form">
+        <input type="hidden" id="task-id" />
+        <input type="text" id="task-title" placeholder="Título da Tarefa" required />
+        <button type="submit">Salvar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="task-list"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
