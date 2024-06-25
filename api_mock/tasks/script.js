@@ -1,4 +1,4 @@
-url = 'https://667aa3fabd627f0dcc8fdd7b.mockapi.io/api/historia-sem-graca/historias'
+url = 'https://667aa3fabd627f0dcc8fdd7b.mockapi.io/api/historia-sem-graca/historias/'
 
 async function carregarHistorias() {
     const res = await fetch(url)
@@ -35,10 +35,24 @@ async function carregarDadosHistoriaParaEditar(id, descricao) {
 }
 
 async function editarHistoria(){
-    console.log('oi')
     const idHistoria = document.querySelector('#id-editar').value
     const descricaoNova = document.querySelector('#descricao-nova').value
-    console.log(idHistoria, descricaoNova)
+    const dadosNovos = {id: idHistoria, descricao: descricaoNova}
+    const detalhesRequisicao = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dadosNovos)
+    }
+
+    try {
+        const resposta = await fetch(`${url}/${idHistoria}`, detalhesRequisicao)
+        carregarHistorias()
+    } catch {
+
+    }
+
 }
 
 async function excluirHistoria(id) {
