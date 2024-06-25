@@ -7,7 +7,8 @@ async function carregarHistorias() {
 }
 
 async function criarHistoria(){
-    const descricao = document.querySelector('#descricao').value
+    const inputDescricao = document.querySelector('#descricao')
+    let descricao = inputDescricao.value
     try {
         const historia = {
             "descricao": descricao,
@@ -21,7 +22,9 @@ async function criarHistoria(){
             body: JSON.stringify(historia)
         }
         const res = await fetch(url, detalhesRequisicao)
+        alert('Tarefa adicionada com sucesso')
         carregarHistorias()
+        inputDescricao.value = ''
     } catch (erro) {
         console.error(erro)
     }
@@ -49,8 +52,8 @@ async function editarHistoria(){
     try {
         const resposta = await fetch(`${url}/${idHistoria}`, detalhesRequisicao)
         carregarHistorias()
-    } catch {
-
+    } catch (erro) {
+        console.error(erro)
     }
 
 }
