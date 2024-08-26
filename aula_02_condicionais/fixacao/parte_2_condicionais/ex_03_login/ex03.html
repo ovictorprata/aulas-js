@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificar Login</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row centered-form">
+        <div class="col-md-6">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Verificar Login</h4>
+            </div>
+            <div class="card-body">
+              <p>
+                Escreva um programa que verifica se o usuário digitou
+                corretamente um nome de usuário “admin” e senha “1234”. Se ele
+                digitou, mostre "Login realizado com sucesso!”. Se não, mostre
+                "Nome de usuário ou senha incorretos.”
+              </p>
+              <form>
+                <div class="form-group">
+                  <label for="usuario">Digite o nome de usuário:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="usuario"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="senha">Digite a senha:</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="senha"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button class="btn btn-primary">Verificar</button>
+                </div>
+                <div class="form-group">
+                  <label>Resultado:</label>
+                  <p id="resultado">Aguardando resultado...</p>
+                  <!-- Exemplo estático -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>

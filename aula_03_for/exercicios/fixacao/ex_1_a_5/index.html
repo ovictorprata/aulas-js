@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de JavaScript</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos/estilo-principal.css">
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Exercícios de JavaScript</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="exercise-form">
+
+                            <!-- Exercício 1 -->
+                            <h2>Exercício 1</h2>
+                            <p>Crie um programa que o usuário digite uma frase e que irá imprimir ela 5 vezes.</p>
+                            <div class="form-group">
+                                <label for="input1">Digite uma frase:</label>
+                                <input type="text" class="form-control" id="input1" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btn1">Executar Exercício 1</button>
+                            <div id="result1" class="result"></div>
+
+                            <!-- Exercício 2 -->
+                            <h2 class="mt-5">Exercício 2</h2>
+                            <p>Escreva um programa que imprima a tabuada de 7 (de 1 a 10).</p>
+                            <div class="form-group">
+                                <label for="input2">Digite um número para a tabuada (ex: 7):</label>
+                                <input type="number" class="form-control" id="input2" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btn2">Executar Exercício 2</button>
+                            <div id="result2" class="result"></div>
+
+                            <!-- Exercício 3 -->
+                            <h2 class="mt-5">Exercício 3</h2>
+                            <p>Escreva um programa que receba uma string e imprima cada caractere em uma linha separada.</p>
+                            <div class="form-group">
+                                <label for="input3">Digite uma string:</label>
+                                <input type="text" class="form-control" id="input3" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btn3">Executar Exercício 3</button>
+                            <div id="result3" class="result"></div>
+
+                            <!-- Exercício 4 -->
+                            <h2 class="mt-5">Exercício 4</h2>
+                            <p>Escreva um programa que conte quantas vogais (a, e, i, o, u) há em uma string fornecida pelo usuário.</p>
+                            <div class="form-group">
+                                <label for="input4">Digite uma string para contar as vogais:</label>
+                                <input type="text" class="form-control" id="input4" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btn4">Executar Exercício 4</button>
+                            <div id="result4" class="result"></div>
+
+                            <!-- Novo Exercício -->
+                            <h2 class="mt-5">Exercício 5</h2>
+                            <p>Escreva um programa que conte quantas vezes uma determinada letra ocorre em uma string.</p>
+                            <div class="form-group">
+                                <label for="input5">Digite uma string:</label>
+                                <input type="text" class="form-control" id="input5" required>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="letter">Digite a letra para contar:</label>
+                                <input type="text" class="form-control" id="letter" maxlength="1" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btn5">Executar Exercício 5</button>
+                            <div id="result5" class="result"></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/principal.js"></script>
+</body>
+</html>

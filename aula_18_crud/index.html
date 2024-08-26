@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD de Produtos de Sacolão</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #e9f5e9;
+      }
+      .container {
+        margin-top: 20px;
+      }
+      .card-header {
+        background-color: #4caf50;
+        color: white;
+      }
+      .btn-custom {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+      }
+      .btn-custom:hover {
+        background-color: #45a049;
+      }
+      .form-group label {
+        color: #4caf50;
+      }
+      .modal-header {
+        background-color: #4caf50;
+        color: white;
+      }
+      .product-card img {
+        max-height: 150px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Formulário para adicionar produto -->
+      <div class="card mb-4">
+        <div class="card-header">Adicionar Produto</div>
+        <div class="card-body">
+          <form id="addProductForm">
+            <div class="form-group">
+              <label for="productName">Nome do Produto</label>
+              <input
+                type="text"
+                class="form-control"
+                id="productName"
+                placeholder="Nome do produto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Preço</label>
+              <input
+                type="text"
+                class="form-control"
+                id="productPrice"
+                placeholder="Preço"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="productDescription">Descrição</label>
+              <textarea
+                class="form-control"
+                id="productDescription"
+                rows="3"
+                placeholder="Descrição do produto"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="productImage">Imagem URL</label>
+              <input
+                type="text"
+                class="form-control"
+                id="productImage"
+                placeholder="URL da imagem"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-custom">
+              Adicionar Produto
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Cards de produtos -->
+      <div class="row">
+        <!-- Card de produto -->
+        <div class="col-md-4 mb-4">
+          <div class="card product-card">
+            <img
+              src="https://via.placeholder.com/350x150"
+              class="card-img-top"
+              alt="Produto 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Produto 1</h5>
+              <p class="card-text">Descrição do produto 1.</p>
+              <p class="card-text"><strong>Preço:</strong> R$ 3,00</p>
+              <button
+                class="btn btn-custom"
+                data-toggle="modal"
+                data-target="#editModal"
+                data-product-id="1"
+              >
+                Editar
+              </button>
+              <button class="btn btn-danger">Excluir</button>
+            </div>
+          </div>
+        </div>
+        <!-- Repetir blocos de card conforme necessário -->
+      </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Editar Produto</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editProductForm">
+              <div class="form-group">
+                <label for="editProductName">Nome do Produto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editProductName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="editProductPrice">Preço</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editProductPrice"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="editProductDescription">Descrição</label>
+                <textarea
+                  class="form-control"
+                  id="editProductDescription"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="editProductImage">Imagem URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editProductImage"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-custom">
+                Salvar Alterações
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Script para abrir o modal de edição com informações do produto
+      $("#editModal").on("show.bs.modal", function (event) {
+        var button = $(event.relatedTarget); // Botão que abriu o modal
+        var productId = button.data("product-id"); // Extraindo ID do produto
+
+        // Aqui você pode preencher o formulário do modal com dados do produto usando o ID
+        var modal = $(this);
+        modal.find("#editProductName").val("Nome do Produto " + productId);
+        modal.find("#editProductPrice").val("R$ 3,00");
+        modal
+          .find("#editProductDescription")
+          .val("Descrição do produto " + productId);
+        modal
+          .find("#editProductImage")
+          .val("https://via.placeholder.com/350x150");
+      });
+    </script>
+  </body>
+</html>

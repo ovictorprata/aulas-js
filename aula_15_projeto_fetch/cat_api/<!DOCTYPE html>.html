@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercícios While</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .exercise-container {
+        margin-top: 30px;
+        text-align: center;
+      }
+      .exercise-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .exercise-card .card-header {
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .exercise-card .card-body {
+        padding: 2rem;
+      }
+      .btn-primary {
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        transition: background-color 0.3s ease;
+      }
+      .btn-primary:hover {
+        opacity: 0.8;
+      }
+
+      /* Alternating colors */
+      .header-red {
+        background-color: #ff0000;
+      }
+      .header-blue {
+        background-color: #0000ff;
+      }
+      .header-green {
+        background-color: #008000;
+      }
+      .header-purple {
+        background-color: #800080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container exercise-container">
+      <div class="row justify-content-center">
+        <!-- Exercise 1: Contagem Regressiva -->
+        <div class="col-md-5">
+          <div class="card exercise-card">
+            <div class="card-header header-red">
+              <h4>Contagem Regressiva</h4>
+            </div>
+            <div class="card-body">
+              <p id="countdown-display">
+                Clique no botão para iniciar a contagem regressiva.
+              </p>
+              <button id="btn-countdown" class="btn btn-primary">
+                Iniciar Contagem
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 2: Formulário de Repetição de Texto -->
+        <div class="col-md-5">
+          <div class="card exercise-card">
+            <div class="card-header header-blue">
+              <h4>Repetir Texto</h4>
+            </div>
+            <div class="card-body">
+              <input
+                type="text"
+                id="repeat-text"
+                class="form-control"
+                placeholder="Digite o texto"
+              />
+              <input
+                type="number"
+                id="repeat-number"
+                class="form-control mt-3"
+                placeholder="Digite o número de repetições"
+              />
+              <button id="btn-repeat" class="btn btn-primary mt-3">
+                Repetir Texto
+              </button>
+              <div id="repeat-output" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 3: Somador de Números -->
+        <div class="col-md-5">
+          <div class="card exercise-card">
+            <div class="card-header header-green">
+              <h4>Somador de Números</h4>
+            </div>
+            <div class="card-body">
+              <input
+                type="number"
+                id="number-input"
+                class="form-control"
+                placeholder="Digite um número"
+              />
+              <button id="btn-sum" class="btn btn-primary mt-3">
+                Adicionar à Soma
+              </button>
+              <p id="sum-display" class="mt-3">Soma total: 0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 4: Adivinhação de Número -->
+        <div class="col-md-5">
+          <div class="card exercise-card">
+            <div class="card-header header-purple">
+              <h4>Adivinhação de Número</h4>
+            </div>
+            <div class="card-body">
+              <p>Escolha um número entre 1 e 10</p>
+              <input
+                type="number"
+                id="guess-number"
+                class="form-control"
+                placeholder="Digite seu palpite"
+              />
+              <button id="btn-guess" class="btn btn-primary mt-3">
+                Adivinhar
+              </button>
+              <p id="guess-result" class="mt-3"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Exercise 1: Contagem Regressiva
+      document
+        .getElementById("btn-countdown")
+        .addEventListener("click", function () {
+          let count = 10;
+          const display = document.getElementById("countdown-display");
+          while (count >= 0) {
+            display.textContent = count--;
+          }
+        });
+
+      // Exercise 2: Formulário de Repetição de Texto
+      document
+        .getElementById("btn-repeat")
+        .addEventListener("click", function () {
+          const text = document.getElementById("repeat-text").value;
+          const times = parseInt(
+            document.getElementById("repeat-number").value
+          );
+          let output = "";
+          let i = 0;
+          while (i < times) {
+            output += text + "<br>";
+            i++;
+          }
+          document.getElementById("repeat-output").innerHTML = output;
+        });
+
+      // Exercise 3: Somador de Números
+      let sum = 0;
+      document.getElementById("btn-sum").addEventListener("click", function () {
+        const num = parseInt(document.getElementById("number-input").value);
+        sum += num;
+        document.getElementById("sum-display").textContent =
+          "Soma total: " + sum;
+      });
+
+      // Exercise 4: Adivinhação de Número
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      document
+        .getElementById("btn-guess")
+        .addEventListener("click", function () {
+          const guess = parseInt(document.getElementById("guess-number").value);
+          const result = document.getElementById("guess-result");
+          if (guess === randomNumber) {
+            result.textContent = "Parabéns! Você adivinhou o número.";
+          } else if (guess < randomNumber) {
+            result.textContent = "Muito baixo! Tente novamente.";
+          } else {
+            result.textContent = "Muito alto! Tente novamente.";
+          }
+        });
+    </script>
+  </body>
+</html>

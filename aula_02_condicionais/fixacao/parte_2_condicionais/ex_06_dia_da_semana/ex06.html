@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Dia da Semana</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Verificar Dia da Semana</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Escreva um programa que verifica o número do dia da semana (1 a 7) digitado pelo usuário e imprime o nome do dia correspondente.</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="dia">Digite o número do dia da semana:</label>
+                                <input type="number" class="form-control" id="dia" min="1" max="7" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button class="btn btn-primary">Verificar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultado">Segunda-feira</p> <!-- Exemplo estático -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

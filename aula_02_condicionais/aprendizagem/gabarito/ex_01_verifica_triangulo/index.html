@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Tipo de Triângulo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Verificar Tipo de Triângulo</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Escreva um programa que verifica se três números digitados representam os lados de um triângulo equilátero, isósceles ou escaleno.</p>
+                        <form id="formTriangulo">
+                            <div class="form-group">
+                                <label for="lado1">Digite o primeiro lado:</label>
+                                <input type="number" class="form-control" id="lado1" name="lado1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lado2">Digite o segundo lado:</label>
+                                <input type="number" class="form-control" id="lado2" name="lado2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lado3">Digite o terceiro lado:</label>
+                                <input type="number" class="form-control" id="lado3" name="lado3" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">Verificar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultadoTriangulo">Aguardando resultado...</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário sobre Crime</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+        
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Questionário sobre Crime</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Responda às seguintes perguntas:</p>
+                        <form id="formCrime">
+                            <div class="form-group">
+                                <label>Telefonou para a vítima?</label><br>
+                                <input type="radio" id="telefoneSim" name="telefone" value="sim">
+                                <label for="telefoneSim">Sim</label><br>
+                                <input type="radio" id="telefoneNao" name="telefone" value="nao">
+                                <label for="telefoneNao">Não</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Esteve no local do crime?</label><br>
+                                <input type="radio" id="localSim" name="local" value="sim">
+                                <label for="localSim">Sim</label><br>
+                                <input type="radio" id="localNao" name="local" value="nao">
+                                <label for="localNao">Não</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Mora perto da vítima?</label><br>
+                                <input type="radio" id="moraSim" name="mora" value="sim">
+                                <label for="moraSim">Sim</label><br>
+                                <input type="radio" id="moraNao" name="mora" value="nao">
+                                <label for="moraNao">Não</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Devia para a vítima?</label><br>
+                                <input type="radio" id="deviaSim" name="devia" value="sim">
+                                <label for="deviaSim">Sim</label><br>
+                                <input type="radio" id="deviaNao" name="devia" value="nao">
+                                <label for="deviaNao">Não</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Já trabalhou com a vítima?</label><br>
+                                <input type="radio" id="trabalhouSim" name="trabalhou" value="sim">
+                                <label for="trabalhouSim">Sim</label><br>
+                                <input type="radio" id="trabalhouNao" name="trabalhou" value="nao">
+                                <label for="trabalhouNao">Não</label>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">Classificar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Classificação:</label>
+                                <p id="resultadoCrime">Aguardando resultado...</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

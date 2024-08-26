@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caixa Eletrônico</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row centered-form">
+        <div class="col-md-6">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Caixa Eletrônico</h4>
+            </div>
+            <div class="card-body">
+              <p>Informe o valor do saque para receber as notas.</p>
+              <form id="formSaque">
+                <div class="form-group">
+                  <label for="valor">Valor do saque (R$):</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="valor"
+                    name="valor"
+                    min="10"
+                    max="600"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="submit" class="btn btn-primary">Sacar</button>
+                </div>
+                <div class="form-group">
+                  <label>Notas:</label>
+                  <p id="resultadoNotas" class="result">
+                    Aguardando cálculo...
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

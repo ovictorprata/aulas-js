@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Maior Número</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Mostrar Maior Número</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Faça um Programa que leia três números e mostre o maior deles.</p>
+                        <form id="formMaiorNumero">
+                            <div class="form-group">
+                                <label for="num1">Digite o primeiro número:</label>
+                                <input type="number" class="form-control" id="num1" name="num1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="num2">Digite o segundo número:</label>
+                                <input type="number" class="form-control" id="num2" name="num2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="num3">Digite o terceiro número:</label>
+                                <input type="number" class="form-control" id="num3" name="num3" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">Mostrar Maior</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultadoMaior">Aguardando resultado...</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

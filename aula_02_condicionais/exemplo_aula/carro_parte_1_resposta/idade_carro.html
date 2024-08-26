@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Idade do Carro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./estilo.css">
+
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Verificar Idade do Carro</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Informe o tempo em anos do seu carro para verificar se ele é novo ou velho.</p>
+                        <form id="formCarro">
+                            <div class="form-group">
+                                <label for="anos">Tempo em anos:</label>
+                                <input type="number" class="form-control" id="anos" name="anos" min="0" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">Verificar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultadoCarro">Aguardando resultado...</p>
+                                <img id="imagemCarro" src="" alt="Imagem do Carro" style="display: none;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

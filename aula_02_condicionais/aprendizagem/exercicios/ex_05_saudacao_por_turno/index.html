@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação por Turno</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Saudação por Turno</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Informe o turno em que você estuda e receba a saudação apropriada.</p>
+                        <form id="formTurno">
+                            <div class="form-group">
+                                <label for="turno">Escolha o turno:</label>
+                                <select class="form-control" id="turno" name="turno" required>
+                                    <option value="M">Matutino</option>
+                                    <option value="V">Vespertino</option>
+                                    <option value="N">Noturno</option>
+                                </select>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">Saudar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultadoTurno">Aguardando resultado...</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

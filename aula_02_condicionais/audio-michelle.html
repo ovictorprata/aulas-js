@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reprodutor de Áudio Simples</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .audio-player {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      #play-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      #play-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      #play-time {
+        margin-top: 10px;
+      }
+      #play-count {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="audio-player">
+      <h1>Reprodutor de Áudio</h1>
+      <button id="play-btn">Play</button>
+      <audio id="audio" src="./chapter_01.mp3"></audio>
+      <div id="play-time">Tempo de reprodução: 0s</div>
+      <div id="play-count">Áudio reproduzido: 0 vezes</div>
+    </div>
+
+    <script>
+      const audio = document.getElementById("audio");
+      const playBtn = document.getElementById("play-btn");
+      const playTime = document.getElementById("play-time");
+      const playCount = document.getElementById("play-count");
+
+      let startTime;
+      let totalTime = 0;
+      let replayCount = 0;
+      const maxReplays = 5;
+
+      // Função para carregar dados do armazenamento local
+      function loadData() {
+        const today = new Date().toISOString().slice(0, 10);
+        const storedData = JSON.parse(localStorage.getItem(today)) || {
+          totalTime: 0,
+          replayCount: 0,
+        };
+        totalTime = storedData.totalTime;
+        replayCount = storedData.replayCount;
+        playCount.textContent = `Áudio reproduzido: ${replayCount} vezes`;
+        playTime.textContent = `Tempo de reprodução: ${Math.floor(totalTime)}s`;
+      }
+
+      // Função para salvar dados no armazenamento local
+      function saveData() {
+        const today = new Date().toISOString().slice(0, 10);
+        localStorage.setItem(today, JSON.stringify({ totalTime, replayCount }));
+      }
+
+      // Carregar dados ao iniciar
+      loadData();
+
+      playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playBtn.textContent = "Pause";
+          startTime = Date.now();
+          updateTime();
+        } else {
+          audio.pause();
+          playBtn.textContent = "Play";
+          totalTime += (Date.now() - startTime) / 1000;
+          saveData(); // Salva dados ao pausar
+        }
+      });
+
+      audio.addEventListener("ended", () => {
+        totalTime += (Date.now() - startTime) / 1000;
+        replayCount++;
+        playCount.textContent = `Áudio reproduzido: ${replayCount} vezes`;
+
+        if (replayCount < maxReplays) {
+          audio.currentTime = 0;
+          audio.play();
+          startTime = Date.now();
+          playBtn.textContent = "Pause";
+        } else {
+          playBtn.disabled = true;
+          playBtn.textContent = "Reproduzido 5 vezes";
+        }
+
+        saveData(); // Salva dados ao finalizar uma reprodução
+        updateTime();
+      });
+
+      function updateTime() {
+        if (!audio.paused) {
+          const elapsedTime = (Date.now() - startTime) / 1000;
+          playTime.textContent = `Tempo de reprodução: ${Math.floor(
+            totalTime + elapsedTime
+          )}s`;
+          requestAnimationFrame(updateTime);
+        }
+      }
+    </script>
+  </body>
+</html>

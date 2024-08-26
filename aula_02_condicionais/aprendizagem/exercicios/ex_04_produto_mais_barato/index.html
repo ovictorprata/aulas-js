@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto Mais Barato</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Produto Mais Barato</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, sabendo que é o mais barato.</p>
+                        <form id="formProdutoBarato">
+                            <div class="form-group">
+                                <label for="preco1">Preço do primeiro produto:</label>
+                                <input type="number" class="form-control" id="preco1" name="preco1" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="preco2">Preço do segundo produto:</label>
+                                <input type="number" class="form-control" id="preco2" name="preco2" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="preco3">Preço do terceiro produto:</label>
+                                <input type="number" class="form-control" id="preco3" name="preco3" step="0.01" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">Verificar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultadoProduto">Aguardando resultado...</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menor Que</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            margin-top: 30px;
+        }
+        .form-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-card .card-header {
+            background-color: #28a745; /* Verde */
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .form-card .card-body {
+            padding: 2rem;
+        }
+        .form-card .btn-primary {
+            background-color: #28a745; /* Verde */
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 2rem;
+            transition: background-color 0.3s ease;
+        }
+        .form-card .btn-primary:hover {
+            background-color: #218838;
+        }
+        .centered-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row centered-form">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <h4>Menor Que: n1 < n2</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="numero1">Digite o primeiro número:</label>
+                                <input type="number" class="form-control" id="numero1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="numero2">Digite o segundo número:</label>
+                                <input type="number" class="form-control" id="numero2" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button class="btn btn-primary">Verificar</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Resultado:</label>
+                                <p id="resultado">true</p> <!-- Exemplo estático -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

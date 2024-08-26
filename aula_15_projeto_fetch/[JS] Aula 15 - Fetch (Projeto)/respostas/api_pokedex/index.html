@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pokémon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos/estilos.css">
+</head>
+<body>
+    <div class="container form-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card form-card">
+                    <div class="card-header text-center">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-pokeball-game-go-34722.png" alt="Pokébola"> 
+                        <h4 class="mb-0 ml-2 mr-2">Consulta de Pokémon</h4> 
+                        <img src="https://user-images.githubusercontent.com/63087888/87461299-8582b900-c60e-11ea-82ff-7a27a51859d0.png" alt="Pokébola"> 
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="pokemon-number">Número ou nome do Pokémon</label>
+                                <input type="pokemon-number" class="form-control" id="pokemon-number" placeholder="Digite número ou nome do Pokémon" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="button" class="btn btn-primary">Buscar</button> 
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" class="form-control" id="name" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Tipo</label>
+                                <input type="text" class="form-control" id="type" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="numberReadonly">Número</label>
+                                <input type="text" class="form-control" id="numberReadonly" readonly>
+                            </div>
+                            <div class="text-center">
+                                <img src="" id="image" alt="Imagem do Pokémon">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./scripts/principal.js"></script>
+</body>
+</html>
