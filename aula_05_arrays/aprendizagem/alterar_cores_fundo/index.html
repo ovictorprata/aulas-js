@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alterar Cores</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row centered-form">
+        <div class="col-md-6">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Alterar Cores</h4>
+              <button class="btn btn-warning">Mudar cores</button>
+            </div>
+            <div class="card-body">
+              <p>Altere a cor de fundo de cada caixa.</p>
+              <div class="caixa"></div>
+              <div class="caixa"></div>
+              <div class="caixa"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cores = ["red", "green", "blue"];
+      const caixas = document.querySelectorAll(".caixa");
+
+      caixas.forEach(function (caixa, index) {
+        caixa.style.backgroundColor = cores[index];
+      });
+    </script>
+  </body>
+</html>

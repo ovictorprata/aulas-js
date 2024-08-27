@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrossel de Imagens</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row centered-form">
+        <div class="col-md-6">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Carrossel de Imagens</h4>
+            </div>
+            <div class="card-body">
+              <p>Adicione imagens ao carrossel.</p>
+              <div class="carrossel"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const imagens = [
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWNjajh1cmFmNHFmdnV1ZXpveHJnODN2ZmpwYXdrcmZpZTIwM3ZjdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8m4R4pvViWtRzbloJ1/giphy.gif",
+        "https://media.giphy.com/media/kaq6GnxDlJaBq/giphy.gif?cid=790b7611qccj8uraf4qfvuuezoxrg83vfjpawkrfie203vcu&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+        "https://media.giphy.com/media/O5NyCibf93upy/giphy.gif?cid=ecf05e47hefg7lhe5axcsy5qavgpxhkznb5i58nggq2b11vi&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+      ];
+      const carrossel = document.querySelector(".carrossel");
+
+      imagens.forEach(function (imagem) {
+        const img = document.createElement("img");
+        img.src = imagem;
+        carrossel.appendChild(img);
+      });
+    </script>
+  </body>
+</html>

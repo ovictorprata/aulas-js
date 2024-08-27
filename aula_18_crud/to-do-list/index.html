@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        background-color: #e9ecef;
+        margin-top: 30px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .todo-header {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .todo-header h1 {
+        margin-bottom: 0;
+        color: #333;
+      }
+      .todo-form {
+        margin-bottom: 20px;
+      }
+      .todo-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        transition: background-color 0.3s;
+      }
+      .todo-item.completed {
+        background-color: #d4edda;
+        text-decoration: line-through;
+        color: #6c757d;
+      }
+      .todo-item button {
+        margin-left: 5px;
+      }
+      .edit-input {
+        display: none;
+        width: calc(100% - 160px);
+      }
+      .edit-mode .todo-text {
+        display: none;
+      }
+      .edit-mode .edit-input {
+        display: inline-block;
+      }
+      .btn-primary,
+      .btn-warning,
+      .btn-danger {
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-header">
+        <h1 class="text-center">To-Do List</h1>
+      </div>
+
+      <form id="todo-form" class="todo-form">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="todo-title"
+            placeholder="Adicione uma nova tarefa"
+            required
+          />
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+
+      <ul id="todo-list" class="list-unstyled">
+        <!-- Tarefas serão inseridas aqui -->
+      </ul>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      const apiUrl = "https://jsonplaceholder.typicode.com/todos"; // URL da API Mock
+      let editId = null;
+
+      // Função para obter as tarefas
+      function getTodos() {
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const todoList = document.getElementById("todo-list");
+            todoList.innerHTML = "";
+            data.forEach((todo) => {
+              const li = document.createElement("li");
+              li.className = `todo-item ${todo.completed ? "completed" : ""}`;
+              li.dataset.id = todo.id;
+              li.innerHTML = `
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" ${
+                                  todo.completed ? "checked" : ""
+                                } onclick="toggleComplete(${todo.id})">
+                                <span class="todo-text ms-2">${
+                                  todo.title
+                                }</span>
+                                <input type="text" class="edit-input form-control ms-2" value="${
+                                  todo.title
+                                }">
+                            </div>
+                            <div>
+                                <button class="btn btn-warning btn-sm" onclick="editTodo(${
+                                  todo.id
+                                })">Editar</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteTodo(${
+                                  todo.id
+                                })">Excluir</button>
+                            </div>
+                        `;
+              todoList.appendChild(li);
+            });
+          })
+          .catch((error) => console.error("Erro ao obter as tarefas:", error));
+      }
+
+      // Função para adicionar uma tarefa
+      document
+        .getElementById("todo-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const title = document.getElementById("todo-title").value;
+          if (editId) {
+            fetch(`${apiUrl}/${editId}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ title, completed: false }),
+            })
+              .then((response) => response.json())
+              .then(() => {
+                editId = null;
+                getTodos();
+                document.getElementById("todo-title").value = "";
+              })
+              .catch((error) =>
+                console.error("Erro ao editar a tarefa:", error)
+              );
+          } else {
+            fetch(apiUrl, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ title, completed: false }),
+            })
+              .then((response) => response.json())
+              .then(() => {
+                getTodos();
+                document.getElementById("todo-title").value = "";
+              })
+              .catch((error) =>
+                console.error("Erro ao adicionar a tarefa:", error)
+              );
+          }
+        });
+
+      // Função para marcar a tarefa como concluída
+      function toggleComplete(id) {
+        const todoItem = document.querySelector(`.todo-item[data-id='${id}']`);
+        const isCompleted = todoItem.classList.contains("completed");
+        fetch(`${apiUrl}/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ completed: !isCompleted }),
+        })
+          .then(() => getTodos())
+          .catch((error) =>
+            console.error("Erro ao atualizar o status da tarefa:", error)
+          );
+      }
+
+      // Função para editar uma tarefa
+      function editTodo(id) {
+        const todoItem = document.querySelector(`.todo-item[data-id='${id}']`);
+        const todoText = todoItem.querySelector(".todo-text").textContent;
+        const editInput = todoItem.querySelector(".edit-input");
+        todoItem.classList.toggle("edit-mode");
+        if (todoItem.classList.contains("edit-mode")) {
+          editInput.value = todoText;
+          editInput.focus();
+          editId = id;
+        } else {
+          editInput.blur();
+          editId = null;
+        }
+      }
+
+      // Função para excluir uma tarefa
+      function deleteTodo(id) {
+        fetch(`${apiUrl}/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => getTodos())
+          .catch((error) => console.error("Erro ao excluir a tarefa:", error));
+      }
+
+      // Carregar tarefas ao iniciar a página
+      document.addEventListener("DOMContentLoaded", getTodos);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+body {
+  background-color: #f8f9fa;
+}
+.form-container {
+  margin-top: 30px;
+}
+.form-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.form-card .card-header {
+  background-color: #17a2b8; /* Azul claro */
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.form-card .btn-primary {
+  background-color: #17a2b8; /* Azul claro */
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  transition: background-color 0.3s ease;
+}
+.form-card .btn-primary:hover {
+  background-color: #138496;
+}
+.centered-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+.carrossel {
+  display: flex;
+  overflow: hidden;
+}
+.carrossel img {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}

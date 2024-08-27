@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atualizar Conteúdo</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .form-container {
+        margin-top: 30px;
+      }
+      .form-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      .form-card .card-header {
+        background-color: #dc3545; /* Vermelho */
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .form-card .btn-primary {
+        background-color: #dc3545; /* Vermelho */
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        transition: background-color 0.3s ease;
+      }
+      .form-card .btn-primary:hover {
+        background-color: #c82333;
+      }
+      .centered-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row centered-form">
+        <div class="col-md-6">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Atualizar Conteúdo</h4>
+            </div>
+            <div class="card-body">
+              <p>Atualize o conteúdo dos elementos abaixo.</p>
+              <div>
+                <span class="atualizar">Texto 1</span>
+                <span class="atualizar">Texto 2</span>
+                <span class="atualizar">Texto 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const novosTextos = ["Atualizado 1", "Atualizado 2", "Atualizado 3"];
+      const spans = document.querySelectorAll(".atualizar");
+
+      spans.forEach(function (span, index) {
+        span.textContent = novosTextos[index];
+      });
+    </script>
+  </body>
+</html>
