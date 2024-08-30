@@ -1,0 +1,30 @@
+body {
+  background-color: #f8f9fa;
+}
+.form-container {
+  margin-top: 30px;
+}
+.form-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.form-card .card-header {
+  background-color: #28a745; /* Verde */
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.form-card .card-body {
+  padding: 2rem;
+}
+.form-card .btn-primary {
+  background-color: #28a745; /* Verde */
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  transition: background-color 0.3s ease;
+}
+.form-card .btn-primary:hover {
+  background-color: #218838; /* Tom mais escuro de verde */
+}

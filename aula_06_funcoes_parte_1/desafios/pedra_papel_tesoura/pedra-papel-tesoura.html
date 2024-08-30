@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedra, Papel, Tesoura</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Pedra, Papel, Tesoura</h4>
+            </div>
+            <div class="card-body">
+              <form id="rpsForm">
+                <div class="form-group">
+                  <label for="playerChoice"
+                    >Escolha (Pedra, Papel ou Tesoura)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="playerChoice"
+                    placeholder="Digite sua escolha"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="submit" class="btn btn-primary">Jogar</button>
+                </div>
+                <p id="resultadoRPS">O resultado será exibido aqui.</p>
+                <div class="text-center mb-4">
+                  <button type="button" class="btn btn-primary">
+                    Jogar Novamente
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

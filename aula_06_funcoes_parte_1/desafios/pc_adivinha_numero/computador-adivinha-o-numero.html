@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computador Adivinha o Número</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Computador Adivinha o Número</h4>
+            </div>
+            <div class="card-body">
+              <form id="guessComputerForm">
+                <div class="form-group">
+                  <label for="feedbackComputer"
+                    >Diga se o palpite é maior, menor ou correto</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="feedbackComputer"
+                    placeholder="Digite 'maior', 'menor' ou 'correto'"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="submit" class="btn btn-primary">
+                    Enviar Feedback
+                  </button>
+                </div>
+                <p id="computerGuess">
+                  O palpite atual do computador será exibido aqui.
+                </p>
+                <p id="feedbackComputerResult">
+                  O resultado será exibido aqui.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
