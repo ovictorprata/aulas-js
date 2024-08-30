@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computador Adivinha o Número</title>
+    <title>Adivinhe o Número</title>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,33 +16,26 @@
         <div class="col-md-5">
           <div class="card form-card">
             <div class="card-header text-center">
-              <h4>Computador Adivinha o Número</h4>
+              <h4>Adivinhe o Número</h4>
             </div>
             <div class="card-body">
-              <form id="guessComputerForm">
+              <form id="guessForm">
                 <div class="form-group">
-                  <label for="feedbackComputer"
-                    >Diga se o palpite é maior, menor ou correto</label
-                  >
+                  <label for="guess">Digite seu palpite</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
-                    id="feedbackComputer"
-                    placeholder="Digite 'maior', 'menor' ou 'correto'"
+                    id="guess"
+                    placeholder="Digite um número entre 1 e 20"
                     required
                   />
                 </div>
                 <div class="text-center mb-4">
                   <button type="submit" class="btn btn-primary">
-                    Enviar Feedback
+                    Adivinhar
                   </button>
                 </div>
-                <p id="computerGuess">
-                  O palpite atual do computador será exibido aqui.
-                </p>
-                <p id="feedbackComputerResult">
-                  O resultado será exibido aqui.
-                </p>
+                <p id="feedback">Aguarde seu feedback aqui.</p>
               </form>
             </div>
           </div>
@@ -50,6 +43,6 @@
       </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./scripts/principal.js"></script>
   </body>
 </html>

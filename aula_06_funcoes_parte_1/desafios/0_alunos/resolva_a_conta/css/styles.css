@@ -10,7 +10,7 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .form-card .card-header {
-  background-color: #6f42c1; /* Roxo */
+  background-color: #17a2b8; /* Azul Claro */
   color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -19,12 +19,12 @@ body {
   padding: 2rem;
 }
 .form-card .btn-primary {
-  background-color: #6f42c1; /* Roxo */
+  background-color: #17a2b8; /* Azul Claro */
   border: none;
   border-radius: 5px;
   padding: 0.5rem 2rem;
   transition: background-color 0.3s ease;
 }
 .form-card .btn-primary:hover {
-  background-color: #5a32a3; /* Tom mais escuro de roxo */
+  background-color: #138496; /* Tom mais escuro de azul claro */
 }
