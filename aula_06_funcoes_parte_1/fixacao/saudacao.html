@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Função de Saudação</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .form-container {
+        margin-top: 30px;
+      }
+      .form-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      .form-card .card-header {
+        background-color: #ff0000; /* Vermelho */
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .form-card .card-body {
+        padding: 2rem;
+      }
+      .form-card .btn-primary {
+        background-color: #ff0000; /* Vermelho */
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        transition: background-color 0.3s ease;
+      }
+      .form-card .btn-primary:hover {
+        background-color: #cc0000; /* Tom mais escuro de vermelho */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Função de Saudação</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="submit" class="btn btn-primary">
+                    Exibir Saudação
+                  </button>
+                </div>
+              </form>
+
+              <div>
+                <p>Mensagem:</p>
+                <p>Clique no botão para inserir a mensagem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

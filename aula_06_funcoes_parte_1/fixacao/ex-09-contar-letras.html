@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contar Letras em uma Palavra</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .form-container {
+        margin-top: 30px;
+      }
+      .form-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      .form-card .card-header {
+        background-color: #20c997; /* Verde */
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .form-card .card-body {
+        padding: 2rem;
+      }
+      .form-card .btn-primary {
+        background-color: #20c997; /* Verde */
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        transition: background-color 0.3s ease;
+      }
+      .form-card .btn-primary:hover {
+        background-color: #1aa56b; /* Tom mais escuro de verde */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Contar Letras em uma Palavra</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="palavra">Palavra</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="palavra"
+                    placeholder="Digite a palavra"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="submit" class="btn btn-primary">
+                    Contar Letras
+                  </button>
+                </div>
+                <div class="form-group">
+                  <label for="resultadoLetras">Número de Letras</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="resultadoLetras"
+                    readonly
+                    value="O número de letras será exibido aqui."
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

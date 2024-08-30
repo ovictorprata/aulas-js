@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repetir Mensagem</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .form-container {
+        margin-top: 30px;
+      }
+      .form-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      .form-card .card-header {
+        background-color: #fd7e14; /* Laranja */
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .form-card .card-body {
+        padding: 2rem;
+      }
+      .form-card .btn-primary {
+        background-color: #fd7e14; /* Laranja */
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        transition: background-color 0.3s ease;
+      }
+      .form-card .btn-primary:hover {
+        background-color: #e96d05; /* Tom mais escuro de laranja */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Repetir Mensagem</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="mensagem">Mensagem</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="mensagem"
+                    placeholder="Digite a mensagem"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="repeticoes">Número de Repetições</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="repeticoes"
+                    placeholder="Digite o número de repetições"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="submit" class="btn btn-primary">Repetir</button>
+                </div>
+              </form>
+              <div class="form-group">
+                <label for="resultadoRepeticao">Resultado</label>
+                <p id="mensagem">A mensagem será exibida aqui</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
