@@ -48,24 +48,5 @@
         </div>
       </div>
     </div>
-    <script>
-      document
-        .getElementById("formNomes")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const nomes = [
-            document.getElementById("nome1").value,
-            document.getElementById("nome2").value,
-            document.getElementById("nome3").value,
-          ];
-          const lista = document.getElementById("lista-nomes");
-          lista.innerHTML = "";
-          nomes.forEach(function (nome) {
-            const li = document.createElement("li");
-            li.textContent = nome;
-            lista.appendChild(li);
-          });
-        });
-    </script>
   </body>
 </html>

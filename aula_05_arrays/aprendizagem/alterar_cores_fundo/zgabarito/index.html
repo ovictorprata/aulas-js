@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabela de Preços</title>
+    <title>Alterar Cores</title>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,33 +16,25 @@
         <div class="col-md-6">
           <div class="card form-card">
             <div class="card-header text-center">
-              <h4>Tabela de Preços</h4>
+              <h4>Alterar Cores</h4>
+              <button class="btn btn-warning">Mudar cores</button>
             </div>
             <div class="card-body">
-              <p>Adicione preços à tabela.</p>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Preço</th>
-                  </tr>
-                </thead>
-                <tbody id="tabela-precos"></tbody>
-              </table>
+              <p>Altere a cor de fundo de cada caixa.</p>
+              <div class="caixa"></div>
+              <div class="caixa"></div>
+              <div class="caixa"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <script>
-      const precos = [10.99, 20.49, 30.0];
-      const tbody = document.getElementById("tabela-precos");
+      const cores = ["red", "green", "blue"];
+      const caixas = document.querySelectorAll(".caixa");
 
-      precos.forEach(function (preco) {
-        const tr = document.createElement("tr");
-        const td = document.createElement("td");
-        td.textContent = preco.toFixed(2);
-        tr.appendChild(td);
-        tbody.appendChild(tr);
+      caixas.forEach(function (caixa, index) {
+        caixa.style.backgroundColor = cores[index];
       });
     </script>
   </body>
