@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Produto</title>
+    <style>
+      /* Estilo para o botão de cadastro */
+      .btn-cadastrar {
+        background-color: #4caf50; /* Verde */
+        color: white;
+        padding: 15px 32px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .btn-cadastrar:hover {
+        background-color: #45a049;
+      }
+
+      /* O Modal - Por padrão, está escondido */
+      .modal {
+        display: none; /* Escondido por padrão */
+        position: fixed; /* Fixa o modal na tela */
+        z-index: 1; /* Fica acima de outros elementos */
+        left: 0;
+        top: 0;
+        width: 100%; /* 100% da largura da tela */
+        height: 100%; /* 100% da altura da tela */
+        overflow: auto; /* Caso o conteúdo do modal seja maior, mostra barras de rolagem */
+        background-color: rgba(0, 0, 0, 0.4); /* Fundo semitransparente */
+      }
+
+      /* Conteúdo do modal */
+      .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Largura do modal */
+        border-radius: 8px;
+      }
+
+      /* O botão de fechar */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      /* Estilos para o formulário do modal */
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .form-group input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      .form-group input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Botão para abrir o modal -->
+    <button class="btn-cadastrar" id="btnCadastrar">
+      Cadastrar Novo Produto
+    </button>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Cadastro de Produto</h2>
+        <form id="formCadastroProduto">
+          <div class="form-group">
+            <label for="nomeProduto">Nome do Produto:</label>
+            <input type="text" id="nomeProduto" name="nomeProduto" required />
+          </div>
+          <div class="form-group">
+            <label for="descricaoProduto">Descrição:</label>
+            <input
+              type="text"
+              id="descricaoProduto"
+              name="descricaoProduto"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="precoProduto">Preço:</label>
+            <input
+              type="number"
+              id="precoProduto"
+              name="precoProduto"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Cadastrar Produto" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Obtendo o modal
+      var modal = document.getElementById("myModal");
+
+      // Obtendo o botão que abre o modal
+      var btn = document.getElementById("btnCadastrar");
+
+      // Obtendo o elemento <span> que fecha o modal
+      var span = document.getElementById("closeModal");
+
+      // Quando o usuário clicar no botão, o modal será exibido
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // Quando o usuário clicar no <span> (x), o modal será fechado
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // Quando o usuário clicar fora do modal, ele será fechado
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Lidar com o envio do formulário (por exemplo, validando ou enviando dados)
+      document.getElementById("formCadastroProduto").onsubmit = function (
+        event
+      ) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        var nome = document.getElementById("nomeProduto").value;
+        var descricao = document.getElementById("descricaoProduto").value;
+        var preco = document.getElementById("precoProduto").value;
+
+        console.log("Produto Cadastrado:");
+        console.log("Nome:", nome);
+        console.log("Descrição:", descricao);
+        console.log("Preço:", preco);
+
+        // Fechar o modal após o envio
+        modal.style.display = "none";
+
+        // Limpar o formulário
+        document.getElementById("formCadastroProduto").reset();
+      };
+    </script>
+  </body>
+</html>

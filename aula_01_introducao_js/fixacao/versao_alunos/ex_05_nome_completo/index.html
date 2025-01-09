@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mostrar Nome Completo</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="container form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card form-card">
+            <div class="card-header text-center">
+              <h4>Mostrar Nome Completo</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="nome">Digite seu nome:</label>
+                  <input type="text" class="form-control" id="nome" required />
+                </div>
+                <div class="form-group">
+                  <label for="sobrenome">Digite seu sobrenome:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sobrenome"
+                    required
+                  />
+                </div>
+                <div class="text-center mb-4">
+                  <button type="button" class="btn btn-primary">
+                    Mostrar Nome Completo
+                  </button>
+                </div>
+                <div class="form-group">
+                  <label>Resultado:</label>
+                  <p id="resultadoNomeCompleto"></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
