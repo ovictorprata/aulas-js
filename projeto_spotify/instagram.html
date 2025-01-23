@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Feed Clone</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #fafafa;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #dbdbdb;
+      }
+
+      .header .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .header .menu {
+        display: flex;
+        gap: 10px;
+      }
+
+      .header .menu div {
+        width: 25px;
+        height: 25px;
+        background-color: #ccc;
+        border-radius: 50%;
+      }
+
+      .post {
+        border-bottom: 1px solid #dbdbdb;
+      }
+
+      .post-header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .post-header img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .post-header .username {
+        font-weight: bold;
+      }
+
+      .post-image img {
+        width: 100%;
+        display: block;
+      }
+
+      .post-actions {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+      }
+
+      .post-actions div {
+        width: 25px;
+        height: 25px;
+        background-color: #ccc;
+        border-radius: 50%;
+      }
+
+      .post-caption {
+        padding: 0 10px 10px;
+      }
+
+      .post-caption .username {
+        font-weight: bold;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">Instagram</div>
+        <div class="menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/40" alt="Profile Picture" />
+          <div class="username">user_name</div>
+        </div>
+        <div class="post-image">
+          <img src="https://via.placeholder.com/600x400" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="post-caption">
+          <span class="username">user_name</span> This is a caption for the
+          post.
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/40" alt="Profile Picture" />
+          <div class="username">another_user</div>
+        </div>
+        <div class="post-image">
+          <img src="https://via.placeholder.com/600x400" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="post-caption">
+          <span class="username">another_user</span> Another caption for this
+          post.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
