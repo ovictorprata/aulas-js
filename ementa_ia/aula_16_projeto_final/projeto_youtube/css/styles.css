@@ -1,0 +1,108 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2c1b3a; /* Roxo escuro */
+  color: #f4f4f4;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #3e2a5e; /* Roxo médio */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.site-header {
+  background-color: #4a1c70; /* Roxo mais claro */
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.site-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.site-header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Lista de aulas */
+.aulas-list {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.aulas-list li {
+  margin: 15px 0;
+}
+
+.aulas-list a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #f4f4f4;
+  background-color: #5a2a8b; /* Roxo brilhante */
+  padding: 15px;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.aulas-list a:hover {
+  background-color: #7b3e9c; /* Roxo mais claro ao passar o mouse */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.site-footer {
+  background-color: #3e2a5e; /* Mesma cor do fundo */
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.site-footer a {
+  color: #bb86fc; /* Roxo claro para links */
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  .aulas-list a {
+    font-size: 1rem;
+  }
+}

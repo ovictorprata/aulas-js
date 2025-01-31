@@ -1,0 +1,88 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: #1e1e2f; /* Fundo roxo escuro */
+  color: #ffffff; /* Texto branco */
+}
+
+header {
+  background-color: #6a1b9a; /* Roxo mais vibrante */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+main {
+  padding: 20px;
+  height: calc(100vh - 160px); /* Altura total menos cabeçalho e rodapé */
+  overflow-y: auto; /* Scroll vertical */
+}
+
+.aulas-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aulas-lista {
+  list-style-type: none;
+}
+
+.aulas-lista li {
+  background-color: #2c2c3a; /* Fundo roxo mais claro */
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.aulas-lista li:hover {
+  background-color: #3c3c4a; /* Roxo mais claro ao passar o mouse */
+}
+
+.aulas-lista a {
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+footer {
+  background-color: #6a1b9a; /* Roxo vibrante */
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .aulas-lista a {
+    font-size: 1rem;
+  }
+}
